@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <style>     
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .sender-message {
+            background-color: #DCF8C6;
+            align-self: flex-end;
+        }
+        .receiver-message {
+            background-color: #fff;
+            align-self: flex-start;
+        }
+        .input-container {
+            margin-top: 20px;
+            display: flex;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        .input-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .chat-container{
+            /* background-color: bl; */
+            /* border: 10px solid #00ffff; */
+            height: 80vh;
+            margin-top: 10vh;
+        }
+    </style>
+</head>
+<body style="background-color: gray;">
+    <div class="chat-container">
+        <h2>Chat with Co-commuter<span id="userName"></span></h2>
+        <div class="message-container" id="messageContainer">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendMessageBtn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Get user details from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('user');
+        document.getElementById('userName').textContent = userName;
+        const messageContainer = document.getElementById('messageContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        // Function to display a message in the chat window
+        function displayMessage(message, sender) {
+            const messageClass = sender === 'sender' ? 'sender-message' : 'receiver-message';
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', messageClass);
+            messageElement.textContent = message;
+            messageContainer.appendChild(messageElement);
+            messageContainer.scrollTop = messageContainer.scrollHeight; // Scroll to bottom
+        }
+
+        // Function to send a message
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                // Send the message (replace this with actual functionality)
+                displayMessage(message, 'sender');
+                messageInput.value = ''; // Clear input field
+            }
+        }
+
+        // Event listener for send message button click
+        sendMessageBtn.addEventListener('click', sendMessage);
+
+        // Simulate receiving a message (replace this with actual functionality)
+        // For demonstration purposes, a random message is received after a delay
+        setTimeout(() => {
+            const receivedMessage = 'Welcome to Commute Chat, please be appropriate and follow company guidelines';
+            displayMessage(receivedMessage, 'receiver');
+        }, 2000);
+    </script>
+</body>
+</html>
+

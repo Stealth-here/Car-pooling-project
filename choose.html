@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose transport</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box {
+
+        height: 150px;
+        background-color: #636e72; /* Metallic gray color */
+        margin: 20px 0;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: none; /* Remove default button border */
+        outline: none; /* Remove default button outline */
+    }
+    
+    .box:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .box:nth-child(2) {
+        background-color: #16c1ff; /* Metallic gray color */
+    }
+    
+    .box:nth-child(3) {
+        background-color: #213137; /* Metallic gray color */
+    }
+    
+    h1 {
+        text-align: center;
+        color: #fff; /* Text color */
+    }
+    .back-video{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+    }
+    @media(min-aspect-ratio:16/9)
+    {
+        .back-video{
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media(max-aspect-ratio:16/9)
+    {
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="bvid">
+    <video autoplay loop muted plays-inline class="back-video" src="public/images/videoplayback.webm">
+        
+    </video>
+    <div class="container">
+        <h1
+        style="font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: xx-large; background-color: blue; opacity: 0.7;"
+        >Choose your mode of transport</h1>
+        <a href="commute">
+            <button class="box" style="width: 30vw;">
+                <!-- <img src="motorbike.png" -->
+                <img  style="width: 20%;" src="./public/images/motorbike.png" alt="">
+                <!-- <h1>Travel in a 2 Wheeler</h1> -->
+            </button>
+        </a>
+        <a href="commute">
+            <button class="box" style="width: 30vw;">
+              <img style="width: 20%;" src="./public/images/tuk-tuk.png" alt="">
+              <!-- <h1>Travel in a Auto Richshaw</h1> -->
+            </button>
+        </a>
+        <a href="commute" >
+            <button class="box" style="width: 30vw;">
+                <img style="width: 20%;" src="/public/images/suv.png" alt="">
+                <!-- <h1>Travel in 4 wheeler</h1> -->
+                 <!-- alt=""> -->
+            </button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

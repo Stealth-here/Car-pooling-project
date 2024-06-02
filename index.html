@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commute connect</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<style> 
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(255, 218, 170); */
+    /* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4624.191611717372!2d77.56199921683637!3d12.941996067830635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1592a738fba9%3A0xb9024ae0b4e162c7!2sBasavanagudi%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1711714725246!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */
+  }
+
+/* .bg-gradient{
+    width: 100%;
+    height: 180vh;
+    background-image: linear-gradient(45deg,black,blue);
+} */
+
+  nav {
+    position: relative;
+    background-color: #333;
+    overflow: hidden;
+    justify-content: space-evenly;
+    display: flex;
+  }
+
+  nav a {
+    display: flex;
+    justify-content: space-evenly;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .container{
+    width: 100%;
+    height: 60vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container h1{
+    font-size: xx-large;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+  }
+  .form{
+    border: 5px solid black;
+  }
+  .form {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #f6f5ff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  form {
+    display: grid;
+    gap: 15px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  #locationButton {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    left: 2vw;
+    width: 15vw;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    top: -15vh;
+  }
+
+  #locationButton::after {
+    /* content: "Turn on your location"; */
+    display: block;
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: -20px;
+    left: 2vw;
+    transform: translateX(-50%);
+  }
+
+  #locationButton:hover {
+    background-color: #0056b3;
+  }
+  .button{
+    display: flex;
+    justify-content: center;
+  }
+  .btn-text{
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+  .destinationInput {
+    /* padding: 10px; */
+    font-size: 16px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    width: 300px;
+    /* margin: 5px; */
+  }
+
+  #destinationLabel {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  #submitButton {
+    background-color: #007BFF;
+    color: #fff;
+    position: relative;
+    top: -15vh;
+    left: 45vw;
+    width: 12vw;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  #submitButton:hover {
+    background-color: #0056b3;
+  }
+  /* form{
+    /* display: flex; */
+    /* justify-content: center;
+    color: white;
+    position: relative;
+    top: 10vh; */
+  /* } */ 
+  /* form input{
+    margin: -30px;
+    padding: -5px;
+    /* padding: 100px; */
+  }
+  .img{
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  .footer{
+    /* border: 2px solid white; */
+    height: 50vh;
+   /* 30px; */
+    margin-top: 30px;
+    background-color: black;
+    width: 100%;
+    color: white;
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+  .footer .h4{
+    /* height: 50vh; */
+   /* 30px; */
+    /* margin-top: 30px; */
+    /* background-color: black; */
+    /* width: 100%; */
+    /* color: white; */
+    /* display: flex; */
+    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
+  }
+  .footer .h5{
+    /* height: 50vh; */
+   /* 30px; */
+    /* margin-top: 30px; */
+    /* background-color: black; */
+    /* width: 100%; */
+    /* color: white; */
+    /* display: flex; */
+    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
+  }
+  .connect{
+    display: flex;
+    justify-content: center;
+  }
+  .box
+  {
+    display: flex;
+    border: 2px solid white;
+    width: 14%;
+    position: relative;
+    left: 43%;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: white;
+  }
+  .box img{
+    margin: 3px;
+  }
+  h3{
+    color: black;
+  }
+  .boxes1{
+    justify-content: center;
+    position: absolute;
+    top: 40vh;
+    width: 25vw;
+    left: 39vw;
+  }
+  .boxes2{
+    justify-content: center;
+    position: absolute;
+    top: 49vh;
+    width: 25vw;
+    left: 39vw;
+  }
+  .boxes3{
+    justify-content: center;
+    position: absolute;
+    top: 58vh;
+    width: 25vw;
+    left: 39vw;
+  }
+  .boxes4{
+    justify-content: center;
+    position: absolute;
+    top: 67vh;
+    width: 25vw;
+    left: 39vw;
+  }
+  .icon:hover{
+    scale: 1.2;
+  }
+
+</style>
+<link rel="stylesheet" href="style.css">
+
+<!-- <body style="background-image: url(https://tse2.mm.bing.net/th?id=OIP.-9dtLrMmiT1Sm7r-zJwUcAHaEK&pid=Api&P=0&h=220); background-repeat: no-repeat;height: 100%;
+ height: 100%; -->
+ <body style="background-image: url(./public/images/image.png);"
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <div class="bg-gradient">
+        <nav>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="signout.html">Signout</a>
+          <a href="feedback.html">Feedback</a>
+        </nav>
+        <div class="container">
+          <h1
+          style="color: white;"><span class="auto-type" style=" background-color: blue;
+          "></span></h1>
+        </div>
+    <!-- <h1>Form</h1> -->
+    <form action="/submit" method="POST">
+        <!-- <label for="name">Name:</label> -->
+        <!-- <h3>Name</h3> -->
+        <input type="text" id="name" name="name"  placeholder="Enter your name" class="boxes1" required ><br><br>
+        <!-- <label for="source">Source:</label> -->
+        <!-- <h3>Source</h3> -->
+        <input type="text;" id="source"
+        placeholder="Enter Source" class="boxes2" name="source" required><br><br>
+        <!-- <label for="destination">Destination:</label> -->
+        <!-- <h3>Destination</h3> -->
+        <input type="text" id="destination" class="boxes3" name="destination" 
+        placeholder="Enter Destination" required><br><br>
+        <!-- <label for="contact">Contact Details:</label> -->
+        <!-- <h3>Contact Details</h3> -->
+        <input type="text" id="contact" name="contact" 
+        placeholder="Enter Contact" class="boxes4" required><br><br>
+        <!-- <a href="choose.html"> -->
+        <button id="submitButton" type="submit">Submit</button>
+        <!-- </a> -->
+        <!-- style="background-color:  #007BFF; padding: 12px; -->
+        <!-- border-radius: 10px; color: white; font-size: x-large;" -->
+    </form>
+    <!-- <form action="/list" method="get">
+        <button>Find commuters</button>
+    </form> -->
+    <!-- <a href="/login.html">Login</a> -->
+    <!-- <a href="/signup.html">Signup</a> -->
+    <div class="btn-text" style="color: black;">
+        <h3>
+          <!-- Click to find your ride buddy -->
+        </h3>
+      </div>
+
+      <div  class="button">
+          <a href="choose.html">
+            <button id="locationButton">Find Commuters</button>
+          </a>
+      </div>
+      <div class="footer">
+        <div class="h4">
+          <h4>Were Here To Help</h4>
+        </div>
+        <div class="h5">
+          Contact Us
+        </div>
+        <div class="connect">
+          <h4>Stay Connected</h4>
+        </div>
+        <div class="box">
+          <a class="icon" href="https://www.facebook.com/">
+            <img src="https://cdn.hugeicons.com/icons/facebook-01-solid-rounded.svg" alt="">
+          </a>
+          <a class="icon" href="https://www.twitter.com/">
+            <img src="https://cdn.hugeicons.com/icons/twitter-solid-rounded.svg" alt="">
+          </a>
+          <a class="icon" href="https://www.instagram.com/">
+            <img src="https://cdn.hugeicons.com/icons/instagram-solid-rounded.svg" alt="">
+          </a>
+          <a class="icon" href="https://www.snapchat.com/">
+            <img src="https://cdn.hugeicons.com/icons/snapchat-bulk-rounded.svg" alt="">
+          </a>
+          <a class="icon" href="https://www.facebook.com/">
+            <img src="https://cdn.hugeicons.com/icons/whatsapp-solid-rounded.svg" alt="">
+          </a>
+          <a class="icon" href="https://www.youtube.com/">
+            <img src="https://cdn.hugeicons.com/icons/youtube-solid-rounded.svg" alt="">
+          </a>
+        </div>
+      </div>
+  </div>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+  var typed = new Typed(".auto-type",{
+      strings: ["Welcome to Commute Connect","Find your ride buddy","Save Money and Environment"],
+      typeSpeed:100,
+      backSpeed:25,
+      loop: true
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #00FFFF; /* Neon Blue */
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 40%; /* Set width to 40% */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #00FFFF; /* Neon Blue */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #00FFFF; /* Neon Blue */
+}
+.container{
+    border: 10px solid #00FFFF ;
+    border-radius: 20px;
+}
+button[type="submit"] {
+    width: 40%; /* Set width to 40% */
+    padding: 10px;
+    background-color: #000;
+    color: #00FFFF; /* Neon Blue */
+    border: 1px solid #00FFFF; /* Neon Blue */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #00FFFF; /* Neon Blue */
+    color: #000;
+}
+a .signup{
+    width: 15vw;
+}
+a .signup:hover{
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <h1>Signup</h1>
+    <div class="container">
+        <form id="signupForm" action="/submit" method="POST">
+            <label for="signupName">Name:</label>
+            <input type="text" id="signupName" name="name" required><br><br>
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="email" required><br><br>
+            <label for="signupPhone">Phone Number:</label>
+            <input type="text" id="signupPhone" name="phone" required><br><br>
+            <label for="signupAddress">Address:</label>
+            <input type="text" id="signupAddress" name="address" required><br><br>
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="password" required><br><br>
+            <a href="login.html">
+                <button class="signup" type="submit">Signup</button>
+            </a>
+        </form>
+    </div>
+
+    <script>
+        // document.getElementById('signupForm').addEventListener(alert("The data has been submitted"))
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            // Redirect to the login page after signup
+            window.location.href = '/login';
+        });
+    </script>
+</body>
+</html>

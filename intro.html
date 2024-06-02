@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commute Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: black;
+            border: 5px solid #00FFFF;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            line-height: 1.6;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end);
+            color: #00FFFF;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #00FFFF;">Welcome to Commute Connect</h1>
+        <p id="content"></p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var content = [
+                "Commute Connect is a leading carpooling app facilitating community-driven travel solutions",
+                " Users seamlessly share rides, optimizing commuting costs, and reducing environmental impact.",
+                "",
+                "Key Features:",
+                "- Real-time Ride Tracking: Track rides in real-time for added safety and convenience.",
+                "- Secure Payment Gateways: Ensure secure transactions through our reliable payment system.",
+                "- Robust Review System: Rate and review your ride experience to maintain quality and safety standards.",
+                "- Tailored Ride Preferences: Customize your ride preferences including options for gender, smoking, and pet-friendly rides.",
+                "- Integration with Public Transit: Seamlessly connect with public transit systems for comprehensive commuting solutions.",
+                "- Incentives for Frequent Users: Enjoy rewards and incentives for making sustainable transportation choices.",
+                "",
+                "Commuter Connect Contributes to:",
+                "- Eco-friendly commuting",
+                "- Alleviating traffic congestion",
+                "- Fostering a greener, more connected urban landscape"
+            ];
+
+            var p = document.getElementById('content');
+            var index = 0;
+
+            function type() {
+                if (index < content.length) {
+                    p.innerHTML += content[index] + "<br>";
+                    index++;
+                    setTimeout(type, 500); // Adjust typing speed here (in milliseconds)
+                }
+            }
+            
+            type();
+            
+            // Add click event listener to redirect to login.html
+            document.addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+        };
+        alert("Click anywhere to enter the home page")
+        </script>
+</body>
+</html>
